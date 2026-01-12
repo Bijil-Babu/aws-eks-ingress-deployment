@@ -1,4 +1,4 @@
-# How to setup alb add on
+# Setup alb add-on
 
 Download IAM policy
 
@@ -51,7 +51,7 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
   --set vpcId=<your-vpc-id>
 ```
 
-Verify that the deployments are running.
+Verify the deployments are running.
 
 ```
 kubectl get deployment -n kube-system aws-load-balancer-controller
