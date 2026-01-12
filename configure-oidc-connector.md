@@ -1,4 +1,4 @@
-# commands to configure IAM OIDC provider 
+# Commands to configure IAM OIDC provider 
 
 ```
 export cluster_name=demo-cluster
