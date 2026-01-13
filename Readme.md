@@ -10,15 +10,15 @@ The project covers:
 
   The repository is designed to be educational, reproducible, and production-aligned, following AWS and Kubernetes best practices.
 
-  #Architecture Overview
-  #Key Components
+  # Architecture Overview
+  # Key Components
   * Amazon EKS (Kubernetes Control Plane)
   * AWS IAM & OIDC Provider
   * AWS Load Balancer Controller (ALB Ingress)
   * Kubernetes Deployment & Service
   * Amazon VPC & Security Groups
  
-  #Prerequisites
+  # Prerequisites
   Before proceeding, ensure you have the following:
   * AWS Account
   * AWS CLI installed and configured
@@ -27,7 +27,7 @@ The project covers:
   * Helm installed
   * Docker (optional, for custom apps)
 
-  #AWS Environment Setup
+  # AWS Environment Setup
   1. Create AWS Account & IAM Users
   * Create an AWS account
   * Configure IAM users with least-privilege access
@@ -35,9 +35,8 @@ The project covers:
  
   2. Configure AWS CLI and kubectl
      ```
-     aws configure
+      aws configure
     ```
-    
      ```
       aws eks update-kubeconfig --name <cluster-name>
     ```
