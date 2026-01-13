@@ -191,7 +191,7 @@ app: eks-sample-linux-app
 spec:
 containers:
 - name: nginx
-image: public.ecr.aws/nginx/nginx:1.23
+image: public. ecr.aws/nginx/nginx:1.23
 ports:
 - containerPort: 80
 ```
@@ -248,3 +248,5 @@ eksctl delete cluster --name demo-cluster --region us-east-1
 * AWS-native Kubernetes networking
 
 ---
+![2048_game](https://github.com/user-attachments/assets/a624bcbb-6925-48aa-b257-f0352c954f0c)
+
