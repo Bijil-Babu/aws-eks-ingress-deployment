@@ -172,6 +172,7 @@ kubectl get deployment -n kube-system aws-load-balancer-controller
 ### Deployment Manifest
 
 Create `deploy.yaml`:
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -193,7 +194,7 @@ containers:
 image: public.ecr.aws/nginx/nginx:1.23
 ports:
 - containerPort: 80
-
+```
 
 Deploy the application:
 ```
@@ -206,6 +207,7 @@ kubectl apply -f deploy.yaml
 ### Service Manifest
 
 Create `service.yaml`:
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -217,7 +219,7 @@ ports:
 - protocol: TCP
 port: 80
 targetPort: 80
-
+```
 
 
 Deploy the service:
