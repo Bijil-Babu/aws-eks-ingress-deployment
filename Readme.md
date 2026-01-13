@@ -1,4 +1,4 @@
-## Production-Ready Django CI/CD on Amazon EKS
+## AWS EKS Application Deployment with ALB Ingress
 
 ## Overview
 This repository demonstrates a complete, end-to-end deployment of a containerized application on Amazon Elastic Kubernetes Service (EKS), exposed using the AWS Load Balancer Controller (ALB Ingress).
