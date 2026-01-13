@@ -94,17 +94,20 @@ export cluster_name=demo-cluster
 
 
 Retrieve OIDC ID:
+```
 oidc_id=$(aws eks describe-cluster --name $cluster_name
 --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)
-
+```
 
 Check if OIDC provider exists:
+```
 aws iam list-open-id-connect-providers | grep $oidc_id
-
+```
 
 If not present, associate the OIDC provider:
+```
 eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
-
+```
 
 ---
 
@@ -121,6 +124,7 @@ aws iam create-policy
 
 
 ### Create IAM Service Account
+```
 eksctl create iamserviceaccount
 --cluster=<your-cluster-name>
 --namespace=kube-system
@@ -128,20 +132,23 @@ eksctl create iamserviceaccount
 --role-name AmazonEKSLoadBalancerControllerRole
 --attach-policy-arn=arn:aws:iam::<your-aws-account-id>:policy/AWSLoadBalancerControllerIAMPolicy
 --approve
-
+```
 ---
 
 ## Deploy AWS Load Balancer Controller
 
 Add Helm repository:
+```
 helm repo add eks https://aws.github.io/eks-charts
-
+```
 
 Update Helm repositories:
+```
 helm repo update
-
+```
 
 Install the controller:
+```
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller
 -n kube-system
 --set clusterName=<your-cluster-name>
@@ -149,13 +156,14 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller
 --set serviceAccount.name=aws-load-balancer-controller
 --set region=<your-region>
 --set vpcId=<your-vpc-id>
-
+```
 
 
 Verify deployment:
+```
 kubectl get deployment -n kube-system aws-load-balancer-controller
 
-
+```
 
 ---
 
@@ -188,8 +196,9 @@ ports:
 
 
 Deploy the application:
+```
 kubectl apply -f deploy.yaml
-
+```
 
 
 ---
@@ -212,8 +221,9 @@ targetPort: 80
 
 
 Deploy the service:
+```
 kubectl apply -f service.yaml
-
+```
 
 
 ---
@@ -221,8 +231,9 @@ kubectl apply -f service.yaml
 ## Cluster Cleanup
 
 To delete the EKS cluster and associated resources:
+```
 eksctl delete cluster --name demo-cluster --region us-east-1
-
+```
 
 ---
 
